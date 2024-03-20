@@ -1,0 +1,2 @@
+river
+confluent-kafka==1.7.0

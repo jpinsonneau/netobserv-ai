@@ -1,0 +1,26 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: netobserv-ai
+  labels:
+    app: netobserv-ai
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: netobserv-ai
+  template:
+    metadata:
+      labels:
+        app: netobserv-ai
+    spec:
+      containers:
+        - name: netobserv-ai
+          image: %DOCKER_IMG%
+          imagePullPolicy: Always
+      serviceAccountName: netobserv-ai
+---
+apiVersion: v1
+kind: ServiceAccount
+metadata:
+  name: netobserv-ai
